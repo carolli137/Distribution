@@ -1,0 +1,151 @@
+<!doctype html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>兑换详情</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+</head>
+<body>
+<header id="header" class="fixed">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>兑换详情</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息</a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout mb20">
+  <div class="nctouch-order-list" id="order-info-container">
+    <ul>
+    </ul>
+  </div>
+</div>
+<footer id="footer"></footer>
+<script type="text/html" id="order-info-tmpl">
+	<div class="nctouch-oredr-detail-block">
+		<h3><i class="orders"></i>交易状态</h3>
+		<div class="order-state"><%=order_info.point_orderstatetext%></div>
+		<%if (order_tips != ''){%><div class="info"><%=order_tips%></div><%}%>
+	</div>
+	<%if(if_deliver){%>
+	<div class="nctouch-oredr-detail-delivery">
+		<a href="<%=WapSiteUrl%>/tmpl/member/order_delivery.html?order_id=<%=order_id%>">
+			<span class="time-line">
+				<i></i>
+			</span>
+			<div class="info">
+				<p id="delivery_content"></p>
+				<time id="delivery_time"></time>
+			</div>
+			<span class="arrow-r"></span>
+		</a>
+	</div>
+	<%}%>
+	<div class="nctouch-oredr-detail-block mt5">
+		<div class="nctouch-oredr-detail-add">
+			<i class="icon-add"></i>
+			<dl>
+        		<dt>收货人：<span><%=orderaddress_info.point_truename%></span><span><%=orderaddress_info.point_telphone%></span></dt>
+				<dd>收货地址：<%=orderaddress_info.point_areainfo%></dd>
+			</dl>
+		</div>
+	</div>
+	<%if (order_info.point_ordermessage != ''){%>
+	<div class="nctouch-oredr-detail-block">
+		<h3><i class="msg"></i>买家留言</h3>
+		<div class="info"><%=order_info.point_ordermessage%></div>
+	</div>
+	<%}%>
+	
+	<div class="nctouch-order-item mt5">
+		<div class="nctouch-order-item-head">
+			
+			<a class="store"><i class="icon"></i>商品列表</a>
+			
+		</div>
+		<div class="nctouch-order-item-con">
+			<%for(i=0; i<prod_list.length; i++){%>
+			<div class="goods-block detail">
+				<a href="<%=WapSiteUrl%>/tmpl/pointspro_detail.html?id=<%=prod_list[i].point_goodsid%>">
+				<div class="goods-pic">
+					<img src="<%=prod_list[i].point_goodsimage%>">
+				</div>
+				<dl class="goods-info">
+					<dt class="goods-name"><%=prod_list[i].point_goodsname%></dt>
+					<dd class="goods-type"></dd>
+				</dl>
+				<div class="goods-subtotal">
+					<span class="goods-price"><em><%=prod_list[i].point_goodspoints%></em>积分</span>
+					<span class="goods-num">x<%=prod_list[i].point_goodsnum%></span>
+				</div>
+			
+			</a>
+			</div>
+			<%}%>
+			
+			
+			<div class="goods-subtotle">
+				
+				<dl class="t">
+					<dt></dt>
+					<dd>合计:<em><%=order_info.point_allpoint%></em>积分</dd>
+				</dl>
+			</div>
+		</div>
+		
+	</div>
+	<div class="nctouch-oredr-detail-block mt5">
+		<ul class="order-log">
+			<li>订单编号：<%=order_info.point_ordersn%></li>
+			<li>创建时间：<%=order_info.point_addtime%></li>
+			
+			<% if(order_info.point_orderstate==30){%>
+			<li>发货时间：<%=order_info.point_shippingtime%></li>
+			<%}%>
+			<% if(order_info.point_orderstate>=40){%>
+			<li>完成时间：<%=order_info.point_finnshedtime%></li>
+			<%}%>
+		</ul>
+	</div>
+	<div class="nctouch-oredr-detail-bottom">
+	
+	<% if (order_info.point_orderstate=='20') {%>
+	<a href="javascript:void(0)" order_id="<%=order_info.point_orderid%>" class="btn cancel-order">取消订单</a>
+	<% } %>
+
+	<% if (order_info.point_orderstate=='30'){ %>
+	<a href="javascript:void(0)" order_id="<%=order_info.point_orderid%>" class="btn key sure-order">确认收货</a>
+	<% } %>
+
+	</div>
+</script> 
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/pointorder_view.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* ============== */
+/* 店铺模板默认风格 */
+/* ================================ */
+/* Author:			33hao	    	*/
+/* Support Site:	www.suibianlu.com	*/
+/* Retrofit Date:	Aug-08-2016		*/
+/* ================================ */
+.ncs-default-banner { background: url(images/header.jpg) no-repeat center center; display: block; width: 100%; height: 140px;}
+.ncs-nav li.active a span, #nav li.active a:hover span { text-shadow: 0 1px 1px rgba(0,0,0,.2)}

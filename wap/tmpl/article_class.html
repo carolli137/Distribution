@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文类分类</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/nctouch_products_list.css">
+</head>
+<body>
+<header id="header">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>文类分类</h1>
+    </div>
+    <div class="header-r">
+			<a id="header-nav" href="article_class.html?ac_id=1"><i class="more"></i><sup></sup></a>
+		</div>
+  </div>
+</header>
+	<div id="article-content">
+	</div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="article-class">
+	<% if(article_class.length >0){%>
+	<ul class="article-class">
+		<% for (var i = 0;i<article_class.length;i++){%>
+			<li class="article-class-item">
+				<a href="<%=WapSiteUrl%>/tmpl/article_list.html?ac_id=<%=article_class[i].ac_id%>"><%=article_class[i].ac_name%>
+				</a>
+			</li>
+        <%}%>
+	</ul>
+    <%}else{%>
+    	<div class="no-record m10">暂无记录</div>
+    <%}%>
+</script>
+<script> var navigate_id ="1";</script> 
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/article_class.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+</body>
+</html>

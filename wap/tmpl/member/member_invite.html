@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>邀请返利</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+<script>
+	function oCopy(obj){
+      obj.select();
+      if (!!window.ActiveXObject || "ActiveXObject" in window){
+        js=obj.createTextRange();
+        js.execCommand("Copy")
+        alert("复制成功!");
+      }else{
+        alert('在“您的邀请链接”文本框上全选后，选择“复制”后，发送到您的朋友圈里吧！');
+      }
+    }
+</script>
+</head>
+<body>
+<header id="header">
+  <div class="header-wrap">
+    <div class="header-l"><a href="member.html"><i class="back"></i></a></div>
+    <span class="header-tab"><a href="javascript:void(0);" class="cur">邀请返利</a><a href="member_invite1.html">分销收入</a></span>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息</a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout feedback">
+<div class="nctouch-asset-info">
+    <div class="container voucher"> <i class="icon"></i>
+      <dl class="rule" style="margin: 0 0.5rem 0 0;">
+        <dd>成功邀请一位好友，可获积分奖励</dd>
+        <dd>当好友产生消费时，再获得返利积分及现金</dd>
+        <dd>最高可获得“三级返利”，月收入上万不是梦</dd>
+      </dl>
+    </div>
+  </div>
+    <div style="font-size: 16px; padding: 10px; margin-top:10px;text-align: center;">
+    您的邀请二维码：
+    </div>
+    <div style="width:150px;margin:0 auto; padding-bottom:10px;text-align: center;">
+               	 <a href="javascript:;" id="download_url" title="保存二维码"><img id="myurl_src" src="" style="width:150px; height:150px" /></a>点击二维码可以保存哦
+				 </div>
+                 
+                 <div style="font-size: 16px; text-align: center; padding: 10px; text-align: center;">
+    您的邀请链接：
+    </div>
+    <textarea id="myurl" onclick="oCopy(this)" class="textarea" style="height: 1rem; font-size: 0.6rem;"></textarea>
+    <div style="text-align: center;">请在上面的文本框上“全选-复制”，记得到朋友圈推广邀请哦</div>
+     </div>       
+      <footer id="footer" class="bottom"></footer>
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/ncscroll-load.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/member_invite.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+.page-seller-apply #header .header-l a i,
+.page-seller-apply #header .header-r a {
+    color: #fff;
+}
+.page-seller-apply .default-avatar {
+    display: block;
+    background-image: none;
+    color: #fff;
+}
+.page-seller-apply .default-avatar i {
+    color: #fff;
+    margin-top: 1rem;
+}
+.page-seller-apply .member-info p {
+    font-size: 0.8rem;
+    color: #fff;
+    line-height: 1rem;
+    margin: 0.25rem auto;
+}
+.page-seller-apply .member-center dl {
+    background-color: transparent;
+    box-shadow: none;
+}
+.page-seller-apply .nctouch-inp-con .form-btn .btn {
+    border-radius: 0;
+}
+.page-seller-apply .box-wrap-grid {
+    margin: 0 15px;
+}
+.page-seller-apply .member-collect span {
+    width: 50%;
+}
+.page-seller-apply .member-collect span.active,
+.page-seller-apply .member-collect span:hover {
+    background-color: rgba(0,0,0,0.1);
+    filter: alpha(opacity=10);
+    position: static;
+    *zoom: 1;
+}
+.page-seller-apply .member-collect span i {
+    font-size: 1.1rem;
+    color: #fff;
+}
+.page-seller-apply .member-center dt h3 i {
+    vertical-align: text-top;
+    width: auto;
+}
+.cssanimations .cd-timeline-img {
+    text-align: center;
+}
+.cssanimations .cd-timeline-img i {
+    color: #fff;
+    line-height: 100%;
+    margin-top: 20%;
+    display: inline-block;
+}
+.cssanimations .cd-timeline-img b {
+    background: url("../images/joinin_pic.png") no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.cssanimations .cd-timeline-img.step-1 b {
+    background-position: 0px -60px;
+}
+.page-seller-apply .adv_list {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.page-seller-apply .swipe {
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+}
+.page-seller-apply .swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.page-seller-apply .swipe-wrap > div {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.page-seller-apply .swipe-wrap img {
+    width: 100%;
+    height: 240px;
+    display: inline-block;
+}
+.btn {
+    display: inline-block;
+    width: 100%;
+    height: 1.8rem;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    text-align: center;
+    color: #888;
+    background: #EEE;
+    border: none;
+    border-radius: 0.2rem;
+}
+.btn.btn-apply {
+    color: #FFF !important;
+    background: #ED5564;
+}
+.fix-bottom-foot {
+    height: 2rem;
+    width: 100%;
+}

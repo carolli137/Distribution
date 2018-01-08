@@ -1,0 +1,21 @@
+.nctouch-order-search {
+    padding: 0.5rem;
+    height: auto;
+}
+.nctouch-order-search input[type="text"] {
+    margin: auto;
+    box-sizing: border-box;
+    height: 1.5rem;
+    width: 100%;
+}
+.nctouch-order-search input[type="button"] {
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    cursor: pointer;
+}
+.nctouch-order-search .write .input-del {
+    left: -0.5rem;
+    top: -0.5rem;
+    cursor: pointer;
+}

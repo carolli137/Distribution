@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>商品管理</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css"> 
+<link rel="stylesheet" type="text/css" href="../../css/nctouch_seller.css">
+</head>
+<body>
+<header id="header" class="fixed">
+ <div class="header-wrap">
+    <div class="header-l"> <a href="seller.html"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>商品管理</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <ul>
+			<li><a href="seller.html"><i class="home"></i>商家中心</a></li>
+			<li><a href="seller_address_list.html"><i class="send"></i>发货地址</a></li>
+			<li><a href="seller_express.html"><i class="express"></i>物流公司</a></li>
+			<li><a href="seller_account.html"><i class="store"></i>店铺设置<sup></sup></a></li>
+			<li><a href="chat_list.html"><i class="message"></i>IM 客服<sup></sup></a></li>
+			<li id="logoutbtn"><a href="javascript:void(0);"><i class="exit"></i>退出登录<sup></sup></a></li>
+		</ul>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout">
+  <div class="nctouch-order-search">
+    <form>
+      <span><input type="text" autocomplete="on" maxlength="50" placeholder="输入商品标题进行搜索" name="goods_key" id="goods_key" oninput="writeClear($(this));" >
+      <span class="input-del"></span></span>
+      <input type="button" id="search_btn" value="&nbsp;">
+    </form>
+  </div>
+  <div id="fixed_nav" class="nctouch-single-nav">
+    <ul id="filtrate_ul" class="w20h">
+      <li class="selected"><a href="javascript:void(0);" data-state="" id="onlinegoods">出售中</a></li>
+      <li><a href="javascript:void(0);" data-state="offline" id="offlinegoods">仓库中</a></li>
+      <li><a href="javascript:void(0);" data-state="lockup" id="illegalgoods">违规商品</a></li> 
+    </ul>
+  </div>
+  <div class="nctouch-order-list">
+    <ul id="order-list">
+    </ul>
+  </div>
+   
+</div>
+ 
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="order-list-tmpl">
+<% var goods_list = datas.goods_list; %>
+<% if (goods_list.length > 0){%>
+	<% for(var i = 0;i<goods_list.length;i++){
+		 
+
+	%> 
+          <div class="nctouch-order-item">
+		  <div class="nctouch-order-item-con">
+                   
+					   <div class="goods-block">
+						 
+							<div class="goods-pic">
+								<img src="<%=goods_list[i].goods_image%>" style="border:solid 1px #ccc;padding:1px;"/>
+							</div>
+							<dl class="goods-info">
+								<dt class="goods-name"><%=goods_list[i].goods_name%></dt> 
+								<dd class="goods-type">$:<%=goods_list[i].goods_price%>
+								<br/>日期：<%=goods_list[i].goods_addtime%> 库存：<%=goods_list[i].goods_storage_sum%>
+								</dd>
+							</dl> 
+							 
+							<div class="goods-subtotal"> 
+								<a href="javascript:void(0)" goods_id="<%=goods_list[i].goods_commonid%>" class="btn edit-goods">编辑</a> 
+								<% if (goods_list[i].goods_state ==0){%>
+								<a href="javascript:void(0)" goods_id="<%=goods_list[i].goods_commonid%>" class="btn online-goods">上架</a>
+								<%}else if(goods_list[i].goods_state ==1){%>
+								<a href="javascript:void(0)" goods_id="<%=goods_list[i].goods_commonid%>" class="btn offline-goods">下架</a>
+								<%}else {%>
+								禁售
+								<%}%>
+								 
+								<a href="javascript:void(0)" goods_id="<%=goods_list[i].goods_commonid%>" class="btn delete-goods" >删除</a> 
+								 
+							</div>
+						 
+						</div>
+				</div>
+				</div>
+
+
+	<%}%>
+  <% if (hasmore) {%>
+	<li class="loading"><div class="spinner"><i></i></div>订单数据读取中...</li>
+	<% } %>
+<%}else {%>
+	<div class="nctouch-norecord order">
+		<div class="norecord-ico"><i></i></div>
+		<dl>
+			<dt>暂无数据！</dt> 
+		</dl> 
+	</div>
+<%}%>
+</script> 
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/common-seller.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../../js/zepto.waypoints.js"></script> 
+<script type="text/javascript" src="../../js/tmpl/seller/seller_goods_list.js"></script>
+</body>
+</html>

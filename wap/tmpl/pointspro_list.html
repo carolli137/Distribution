@@ -1,0 +1,150 @@
+<!doctype html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>积分兑换商品</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_products_list.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_common.css">
+</head>
+<body>
+<header id="header" class="nctouch-product-header fixed">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-inp"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键词</span> </div>
+    <div class="header-r"> <a href="../tmpl/product_first_categroy.html" class="categroy"><i></i>
+      </a> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="goods-search-list-nav">
+    <ul id="nav_ul">
+      <li><a href="javascript:void(0);" class="current" id="sort_default">默认排序<i></i></a></li>
+      <li><a href="javascript:void(0);" class="" onClick="init_get_list('2', 'isable')">我能兑换</a></li>
+      <li><a href="javascript:void(0);" id="search_adv">筛选<i></i></a></li>
+    </ul>
+    <div class="browse-mode"><a href="javascript:void(0);" id="show_style"><span class="browse-list"></span></a></div>
+  </div>
+<div id="sort_inner" class="goods-sort-inner hide"> <span><a href="javascript:void(0);" class="cur"  onclick="init_get_list('', '')">默认排序<i></i></a></span> <span><a href="javascript:void(0);" onClick="init_get_list('pointsdesc', '3')">积分从高到低<i></i></a></span> <span><a href="javascript:void(0);" onClick="init_get_list('pointsasc', '3')">积分从低到高<i></i></a></span> <span><a href="javascript:void(0);" onClick="init_get_list('stimedesc', '2')">最新发布<i></i></a></span> </div>
+<div class="nctouch-main-layout mt40 mb20">
+  <div id="product_list" class="list">
+    <ul class="goods-secrch-list">
+    </ul>
+  </div>
+</div>
+<!--筛选部分-->
+<div class="nctouch-full-mask hide">
+  <div class="nctouch-full-mask-bg"></div>
+  <div class="nctouch-full-mask-block">
+    <div class="header">
+      <div class="header-wrap">
+        <div class="header-l"> <a href="javascript:void(0);"><i class="back"></i></a></div>
+        <div class="header-title">
+          <h1>筛选</h1>
+        </div>
+        <div class="header-r"><a href="javascript:void(0);" id="reset" class="text">重置</a> </div>
+      </div>
+    </div>
+    <div class="nctouch-main-layout-a secreen-layout" id="list-items-scroll" style="top: 2rem;">	<div>	<dl>		<dt>积分区间</dt>		<dd>			<span class="inp-balck"><input type="text" id="points_min" nctype="price" pattern="[0-9]*" class="inp" placeholder="最低积分"/></span>			<span class="line"></span>			<span class="inp-balck"><input nctype="price" type="text" id="points_max" pattern="[0-9]*" class="inp" placeholder="最高积分"/></span>		</dd>	</dl>	<div class="bottom">	<a href="javascript:void(0);" class="btn-l" id="search_submit2">筛选兑换</a>	</div></div>	<div></div></div>
+  </div>
+</div>
+<div class="fix-block-r">
+	
+	<a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="search_items">
+<div>
+	<dl>
+		<dt>积分区间</dt>
+		<dd>
+			<span class="inp-balck"><input type="text" id="points_min" nctype="price" pattern="[0-9]*" class="inp" placeholder="最低积分"/></span>
+			<span class="line"></span>
+			<span class="inp-balck"><input nctype="price" type="text" id="points_max" pattern="[0-9]*" class="inp" placeholder="最高积分"/></span>
+		</dd>
+	</dl>
+	<div class="bottom">
+	<a href="javascript:void(0);" class="btn-l" id="search_submit2">筛选兑换</a>
+	</div>
+</div>
+</script> 
+<!--筛选部分-->
+</body>
+<script type="text/html" id="home_body">
+	<% var goods_list = datas.goods_list; %>
+	<% if(goods_list.length >0){%>
+			<%for(i=0;i<goods_list.length;i++){%>
+			<li class="goods-item" goods_id="<%=goods_list[i].pgoods_id;%>">
+				<span class="goods-pic">
+					<a href="pointspro_detail.html?id=<%=goods_list[i].pgoods_id;%>">
+						<img src="<%=goods_list[i].pgoods_image;%>"/>
+					</a>
+				</span>
+				<dl class="goods-info">
+					<dt class="goods-name">
+						<a href="pointspro_detail.html?id=<%=goods_list[i].pgoods_id;%>">
+							<h4><%=goods_list[i].pgoods_name;%></h4>							
+						</a>
+					</dt>
+					<dd class="goods-sale">
+						<a href="pointspro_detail.html?id=<%=goods_list[i].pgoods_id;%>">
+							<span class="goods-price">积分兑换：<em><%=goods_list[i].pgoods_points;%></em>积分
+							
+							</span>
+							</a>
+						</dd>
+						<dd class="goods-assist">
+							<a href="pointspro_detail.html?id=<%=goods_list[i].pgoods_id;%>">
+								<span class="goods-sold">库存：
+									<em><%=goods_list[i].pgoods_storage;%></em>
+								</span>
+							</a>
+						
+						</dd>
+					</dl>
+			</li>
+			<%}%>
+			<% if (hasmore) {%>
+			<li class="loading"><div class="spinner"><i></i></div>服务数据读取中...</li>
+			<% } %>
+	<%
+	   }else {
+	%>
+		<div class="nctouch-norecord search">
+			<div class="norecord-ico"><i></i></div>
+				<dl>
+					<dt>没有找到任何相关信息</dt>
+					<dd>选择或搜索其它服务分类/名称...</dd>
+				</dl>
+			<a href="javascript:history.go(-1)" class="btn">重新选择</a>
+		</div>
+	<%
+	   }
+	%>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/tmpl/pointspro_list.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+</html>

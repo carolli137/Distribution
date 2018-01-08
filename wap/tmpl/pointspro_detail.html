@@ -1,0 +1,208 @@
+<!doctype html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>积分兑换详情</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_pointpro_detail.css">
+</head>
+<body>
+<header id="header" class="transparent">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <ul class="header-nav">
+     
+    </ul>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div id="product_detail_html" style="position: relative; z-index: 2;"></div>
+<div  class="nctouch-bottom-mask"></div>
+	<div class="goods-detail-store" style="margin-bottom: 0px;">		
+			<div class="store-name"><i class="icon-store"></i>			
+				<span class="icon-mall" style="margin-left:0px;">兑换详情：</span>
+			</div>		
+	</div>
+<div class="nctouch-main-layout" style="margin-top:0px;background: white;">
+  <div class=" detail-info" style="background: white;position: relative; z-index: 1;margin-left: 0.5rem;margin-right: 0.5rem;"  id="fixed-tab-pannel"></div>
+</div>
+<div id="product_detail_spec_html" class="nctouch-bottom-mask"></div>
+<div id="voucher_html" class="nctouch-bottom-mask"></div>
+<div class="goods-detail-bottom"></div>
+<script type="text/html" id="product_detail">
+<div class="goods-detail-top" style="position: relative">
+		<div class="goods-detail-pic" id="mySwipe">
+			<ul>
+				
+				<li><img src="<%=goods_info.pgoods_image %>" /></li>
+				
+			</ul>
+		</div>
+	
+		
+	</div>
+<div class="goods-detail-cnt" style="margin-top:5px;">
+	<div class="goods-detail-name">
+		<dl> 
+			<dt><%=goods_info.pgoods_name%></dt>
+			<dd></dd>
+		</dl>
+	</div>
+	<div class="goods-detail-price">
+		
+		<dl>
+			<dt>积分兑换：<%=goods_info.pgoods_points%>积分<em></em>
+			</dt>
+			<dd>原价：￥<%=goods_info.pgoods_price %></dd>
+		</dl>
+	
+		<span class="sold">剩余：<%=goods_info.pgoods_storage %>件</span>
+	</div>
+
+
+
+	<!--div class="goods-detail-recom">
+		<h4>推荐</h4>
+		<ul>
+			<%for (var i = 0;i<goods_commend_list.length;i++){%>
+				<li>
+					<a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
+						<div class="pic"><img src="<%=goods_commend_list[i].goods_image_url%>"></div>
+						<dl>
+							<dt><%=goods_commend_list[i].goods_name%></dt>
+							<dd>￥<em><%=goods_commend_list[i].goods_promotion_price%></em></dd>
+						</dl>
+					</a>
+				</li>
+			<%}%>
+		</ul>
+	</div-->
+	
+	<div class="goods-detail-foot">
+		<!--div class="otreh-handle">
+			<a href="javascript:void(0);" class="kefu"><i></i><p>首页</p></a>
+			<a href="../tmpl/cart_list.html" class="cart"><i></i><p>积分中心</p><span id="cart_count"></span></a>
+		</div-->
+		<div class="buy-handle <%if(goods_info.pgoods_storage<1){%>no-buy<%}%>">
+			
+			<a href="javascript:void(0);" class="animation-up buy-now">立即兑换</a>
+		</div>
+	</div>
+</script> 
+<script type="text/html" id="product_detail_sepc">
+<div class="nctouch-bottom-mask-bg"></div>
+<div class="nctouch-bottom-mask-block">
+	<div class="nctouch-bottom-mask-tip"></div>
+	<div class="nctouch-bottom-mask-top goods-options-info">
+		<div class="goods-pic">
+		<img src="<%=goods_info.pgoods_image %>"/>
+	</div>
+	<dl>
+		<dt><%=goods_info.pgoods_name%></dt>
+		<dd class="goods-price">
+	
+			积分兑换：<em><%=goods_info.pgoods_points%></em>积分
+		
+			<span class="goods-storage">库存：<%=goods_info.pgoods_storage%>件</span>
+		</dd>
+	</dl>
+	<a href="javascript:void(0);" class="nctouch-bottom-mask-close"><i></i></a>
+</div>
+
+<div class="goods-option-value">兑换数量
+	<div class="value-box">
+		<span class="minus">
+			<a href="javascript:void(0);">&nbsp;</a>
+		</span>
+		<span>
+			<input type="text" pattern="[0-9]*" class="buy-num" id="buynum" value="1"/>
+		</span>
+		<span class="add">
+			<a href="javascript:void(0);">&nbsp;</a>
+		</span>
+	</div>
+</div>
+<div class="goods-option-foot">
+	
+	<div class="buy-handle <%if(goods_info.goods_storage<1){%>no-buy<%}%>">
+		
+		<a href="javascript:void(0);" class="buy-now" id="buy-now">立即兑换</a>
+	</div>
+</div>
+</script> 
+
+
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/swipe.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/iscroll.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/tmpl/footer.js"></script> 
+<script type="text/javascript" src="../js/fly/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="../js/fly/zepto.fly.min.js"></script>
+<script type="text/javascript" src="../js/tmpl/pointspro_detail.js"></script>
+    <script type="text/javascript">  
+    $(function(){  
+    var imglist =document.getElementsByTagName("img");  
+    //安卓4.0+等高版本不支持window.screen.width，安卓2.3.3系统支持  
+    var _width;  
+    doDraw();  
+      
+    window.onresize = function(){  
+        //捕捉屏幕窗口变化，始终保证图片根据屏幕宽度合理显示  
+        doDraw();  
+    }  
+      
+    function doDraw(){  
+        _width = window.innerWidth;  
+        for( var i = 0, len = imglist.length; i < len; i++){  
+            DrawImage(imglist[i],_width);  
+        }  
+    }  
+      
+    function DrawImage(ImgD,_width){   
+        var image=new Image();   
+        image.src=ImgD.src;   
+        image.onload = function(){  
+            //限制，只对宽高都大于30的图片做显示处理  
+            if(image.width>30 && image.height>30){   
+                if(image.width>_width){  
+                    ImgD.width=_width;   
+                    ImgD.height=(image.height*_width)/image.width;   
+                }else{   
+                    ImgD.width=image.width;   
+                    ImgD.height=image.height;   
+                }   
+      
+            }     
+        }  
+      
+    }  
+         
+    })  
+    </script>  
+</body>
+</html>
